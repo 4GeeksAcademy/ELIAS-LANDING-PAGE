@@ -23,7 +23,7 @@ import cod18 from "../../img/cod18.png";
 import cod19 from "../../img/cod19.png";
 import cod20 from "../../img/cod20.png";
 
-const Cards = () => {
+const CardsAll = () => {
   const images = [cod1, cod2, cod3, cod4, cod5, cod6, cod7, cod8, cod9, cod10, cod11, cod12, cod13, cod14, cod15, cod16, cod17, cod18, cod19, cod20];
   const titles = [
     "Call of Duty: Infinite Warfare (2080",
@@ -51,14 +51,15 @@ const Cards = () => {
   return (
     <Container fluid className="p-4">
       <Row>
-        {Array.from({ length: 4 }).map((_, index) => (
+        {Array.from({ length: 20 }).map((_, index) => (
           <Col key={index} xs={12} sm={12} md={6} lg={4} xl={3}>
-            <div className="card w-80 d-flex flex-column align-items-center justify-content-center m-3" style={{ minWidth: "250px", maxWidth: "450px" }}>
+            <div className="card w-80 d-flex flex-column align-items-center justify-content-center m-3 position-relative" style={{ minWidth: "250px", maxWidth: "450px" }}>
               <img src={images[index % images.length]} className="card-img-top" alt={`Imagen ${index + 1}`} style={{ height: "300px", objectFit: "center" }} />
               <div className="card-body text-center">
                 <h4 className="card-title text-dark">{titles[index]}</h4>
                 <p className="card-text text-dark" style={{ fontSize: "0.85rem" }}>Disponible para: Play Station 4/5, PC, XBOX SERIES X.</p>
-                <button className="btn btn-primary" style={{ padding: "0.25rem 0.75rem" }}>Añadir al <a href="#"><img src={icon} style={{width:"22px"}} alt="carrito de compra"/></a></button>
+                {/* Modificado el botón para incluir el precio y cambiar el texto a "Add to" */}
+                <button className="btn btn-primary" style={{ padding: "0.25rem 0.75rem" }}>Buy<span className="ms-1">69'90€</span></button>
               </div>
             </div>
           </Col>
@@ -68,4 +69,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default CardsAll;
