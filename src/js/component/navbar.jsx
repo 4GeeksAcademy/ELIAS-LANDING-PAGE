@@ -18,7 +18,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item"><Link className="nav-link text-light" to="/">INICIO</Link></li> {/* Usa Link de react-router-dom */}
+              <li className="nav-item"><Link className="nav-link text-light" to="/">INICIO</Link></li>
               <li className="nav-item"><a className="nav-link text-light" href="#">OFERTAS</a></li>
               <li className="nav-item"><a className="nav-link text-light" href="#">CONTACTO</a></li>
               <li className="nav-item">
