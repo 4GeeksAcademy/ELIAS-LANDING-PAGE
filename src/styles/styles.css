@@ -7,6 +7,17 @@ body{
     color: white;
 }
 
+.me-2{
+    border-radius: 50%;
+}
+
+.me-2:hover{
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px rgb(255, 255, 255); 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    z-index: 1;
+}
+
 .nav-link:hover {
     color: #f5f109 !important;
 }
