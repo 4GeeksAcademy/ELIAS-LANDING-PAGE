@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from "./component/home.jsx";
-import SagaCompleta from "./component/sagacompleta.jsx";
+import CardsAll from "./component/cardsAll.jsx";
+import ContactForm from "./component/contactform.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -14,7 +15,10 @@ ReactDOM.createRoot(rootElement).render(
   <Router>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/saga-completa" element={<SagaCompleta />} />
+      <Route path="/cards-all" element={<CardsAll />} />
+      <Route path="/contact-form" element={<ContactForm />} />
+
+      
     </Routes>
   </Router>
 );

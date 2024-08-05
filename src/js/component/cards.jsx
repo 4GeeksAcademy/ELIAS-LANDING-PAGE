@@ -1,7 +1,11 @@
-import React from "react";
-import icon from "../../img/cesta.png"
-import "../../styles/styles.css";
+import React, { useState } from "react";
+import icon from "../../img/cesta.png";
 import { Container, Row, Col } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import "../../styles/styles.css";
+
+/*Imágenes Tarjetas*/
 import cod1 from "../../img/cod1.png";
 import cod2 from "../../img/cod2.png";
 import cod3 from "../../img/cod3.png";
@@ -48,23 +52,45 @@ const Cards = () => {
     "Call of Duty: WWII (1940)",
   ];
 
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTitle, setSelectedTitle] = useState('');
+
+  const handleBuyClick = (title) => {
+    setSelectedTitle(title);
+    setShowModal(true);
+  };
+
   return (
-    <Container fluid className="p-4">
-      <Row>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Col key={index} xs={12} sm={12} md={6} lg={4} xl={3}>
-            <div className="card w-80 d-flex flex-column align-items-center justify-content-center m-3" style={{ minWidth: "250px", maxWidth: "450px" }}>
-              <img src={images[index % images.length]} className="card-img-top" alt={`Imagen ${index + 1}`} style={{ height: "300px", objectFit: "center" }} />
-              <div className="card-body text-center">
-                <h4 className="card-title text-dark">{titles[index]}</h4>
-                <p className="card-text text-dark" style={{ fontSize: "0.85rem" }}>Disponible para: Play Station 4/5, PC, XBOX SERIES X.</p>
-                <button className="btn btn-primary" style={{ padding: "0.25rem 0.75rem" }}>Añadir al <a href="#"><img src={icon} style={{width:"22px"}} alt="carrito de compra"/></a></button>
+    <>
+      <Container fluid className="p-4">
+        <Row>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Col key={index} xs={12} sm={12} md={6} lg={4} xl={3}>
+              <div className="card w-80 d-flex flex-column align-items-center justify-content-center m-3" style={{ minWidth: "250px", maxWidth: "450px" }}>
+                <img src={images[index % images.length]} className="card-img-top" alt={`Imagen ${index + 1}`} style={{ height: "300px", objectFit: "center" }} />
+                <div className="card-body text-center">
+                  <h4 className="card-title text-dark">{titles[index]}</h4>
+                  <p className="card-text text-dark" style={{ fontSize: "0.85rem" }}>Disponible para: Play Station 4/5, PC, XBOX SERIES X.</p>
+                  <button className="btn btn-primary" style={{ padding: "0.25rem 0.75rem" }} onClick={() => handleBuyClick(titles[index])}>Añadir al <a href="#"><img src={icon} style={{width:"22px"}} alt="carrito de compra"/></a></button>      
+                </div>
               </div>
-            </div>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Añadido a la Cesta</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>El juego "{selectedTitle}" se ha añadido correctamente a la cesta.</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Cerrar
+            </Button>
+          </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
