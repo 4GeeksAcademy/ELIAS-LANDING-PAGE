@@ -10,7 +10,7 @@ function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [showModal, setShowModal] = useState(false); //
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,15 +24,15 @@ function ContactForm() {
       setEmail('');
       setMessage('');
       setShowModal(false);
-    }, 6000); 
+    }, 6000);
   };
 
   return (
     <>
       <Navbar />
-      <div className="container-fluid d-flex flex-column justify-content-center align-items-center vh-100" style={{backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: "fixed"}}>
-        <div className="col-md6 col-lg-5 mx-auto" style={{padding: "80px", height: "40vh"}}>
-          <Form className="text-light" onSubmit={handleSubmit}>
+      <div className="container-fluid d-flex flex-column justify-content-center align-items-center vh-100" style={{backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: "fixed", minHeight: "100vh"}}>
+        <div className="col-md-6 col-lg-5 mx-auto" style={{padding: "80px", height: "calc(100vh - 160px)"}}>
+          <Form className="text-danger" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formName">
               <Form.Label><h3>Nombre</h3></Form.Label>
               <Form.Control type="text" placeholder="Ingrese su nombre y apellidos" required value={name} onChange={(e) => setName(e.target.value)} />
