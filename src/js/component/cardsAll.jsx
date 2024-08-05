@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/styles.css";
 import { Container, Row, Col } from 'react-bootstrap';
-
 import Navbar from "./navbar";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';

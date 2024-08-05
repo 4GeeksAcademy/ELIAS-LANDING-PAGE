@@ -24,7 +24,7 @@ const Navbar = () => {
             <li className="nav-item"><Link className="nav-link text-light" to="/">INICIO</Link></li>
             <li className="nav-item"><Link className="nav-link text-light" to="/cards-all">JUEGOS</Link></li>
             <li className="nav-item"><Link className="nav-link text-light" to="/contact-form">CONTACTO</Link></li>
-            <li className="nav-item"><Link className="nav-link text-light" to="">CARRITO<img src={icon1} alt="" style={{width: "30px"}}/></Link>
+            <li className="nav-item"><Link className="nav-link text-light" to="/cart">CARRITO<img src={icon1} alt="" style={{width: "30px"}}/></Link>
             </li>
           </ul>
         </div>
