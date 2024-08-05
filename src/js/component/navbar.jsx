@@ -12,9 +12,9 @@ const Navbar = () => {
         <a className="navbar-brand d-flex align-items-center" href="/">
           <img src={logo} alt="Logo" width="70" height="70" className="me-2 img-fluid"/>
         </a>
-        <h3 className="mb-0 text-light">Landing Page with React</h3>
+        <h3 className="mb-0 text-light">Landing Page with</h3>
         <a href="https://es.react.dev/" target="_blank"><img src="https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000" alt="React" width="40" height="40" className="me-2 img-fluid"/></a>
-        <h3 className="mb-0 text-light">And Bootstrap</h3>
+        <h3 className="mb-0 text-light">&</h3>
         <a href="https://getbootstrap.com/" target="_blank"><img src="https://img.icons8.com/?size=100&id=g9mmSxx3SwAI&format=png&color=000000" alt="Bootstrap" width="40" height="40" className="me-2 img-fluid"/></a>
         <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style={{color:"white"}}>
           <span className="navbar-toggler-icon"></span>

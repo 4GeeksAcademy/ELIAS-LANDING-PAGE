@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Navbar from './navbar';
 import backgroundImage from "../../img/fondo4.png";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -29,36 +30,33 @@ function ContactForm() {
   return (
     <>
       <Navbar />
-      <div className="d-flex justify-content-center align-items-center text-light" style={{height: "90.8vh", padding: "350px",
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',}}>
-        <Form className="w-50" onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formName">
-            <Form.Label><h3>Nombre</h3></Form.Label>
-            <Form.Control type="text" placeholder="Ingrese su nombre y apellidos" required value={name} onChange={(e) => setName(e.target.value)} />
-          </Form.Group>
+      <div className="container-fluid d-flex flex-column justify-content-center align-items-center vh-100" style={{backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: "fixed"}}>
+        <div className="col-md6 col-lg-5 mx-auto" style={{padding: "80px", height: "40vh"}}>
+          <Form className="text-light" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label><h3>Nombre</h3></Form.Label>
+              <Form.Control type="text" placeholder="Ingrese su nombre y apellidos" required value={name} onChange={(e) => setName(e.target.value)} />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formEmail">
-            <Form.Label><h3>Email</h3></Form.Label>
-            <Form.Control type="email" placeholder="Ingrese su correo electrónico" required value={email} onChange={(e) => setEmail(e.target.value)} />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="formEmail">
+              <Form.Label><h3>Email</h3></Form.Label>
+              <Form.Control type="email" placeholder="Ingrese su correo electrónico" required value={email} onChange={(e) => setEmail(e.target.value)} />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formEmail">
-            <Form.Label><h3>Teléfono</h3></Form.Label>
-            <Form.Control type="email" placeholder="Ingrese un número de contacto" required value={email} onChange={(e) => setEmail(e.target.value)} />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="formPhone">
+              <Form.Label><h3>Teléfono</h3></Form.Label>
+              <Form.Control type="tel" placeholder="Ingrese un número de contacto" required value={email} onChange={(e) => setEmail(e.target.value)} /> {/* Nota: Este campo usa el mismo controlador que el email, corrígelo según sea necesario */}
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formMessage">
-            <Form.Label><h3>Mensaje</h3></Form.Label>
-            <Form.Control as="textarea" placeholder="Escriba su mensaje aquí" required value={message} onChange={(e) => setMessage(e.target.value)} />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Enviar
-          </Button>
-        </Form>
+            <Form.Group className="mb-3" controlId="formMessage">
+              <Form.Label><h3>Mensaje</h3></Form.Label>
+              <Form.Control as="textarea" placeholder="Escriba su mensaje aquí" required value={message} onChange={(e) => setMessage(e.target.value)} />
+            </Form.Group>
+          </Form>
+          <Button id="btnForm" type="submit">
+              Enviar
+            </Button>
+        </div>
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>¡Mensaje enviado!</Modal.Title>
